@@ -1,0 +1,30 @@
+use("store")
+
+db.createCollection("users", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["email", "pasword"],
+            properties: {
+                email:{
+                    bsonType: "string"
+                },
+                lastname:{
+                    bsonType: "string"
+                },
+                pasword:{
+                    bsonType: "string"
+                },
+                age:{
+                    bsonType: "int",
+                    minimum: 18,
+                    maximum: 99
+                },
+                gender:{
+                    bsonType: "string",
+                    enum: ["M", "F"]
+                }
+            }
+        }
+    }
+})

@@ -1,0 +1,8 @@
+use("store")
+db.users.insertOne({
+    lastname: "Doe",
+    email: "doe@gmail.com",
+    pasword: "*****",
+    age: 25,
+    gender: "M"
+})
