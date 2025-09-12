@@ -1,0 +1,43 @@
+use("store")
+
+db.getCollectionInfos()
+
+db.runCommand({
+    collMod: "products",
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "size"],
+            properties: {
+                name:{
+                    bsonType: "string"
+                },
+                size:{
+                    bsonType: "array",
+                    minItems: 1,
+                    uniqueItems: false,
+                    items: {
+                        bsonType: "string"
+                        
+                    }
+                },
+                category:{
+                    bsonType: "object",
+                    required: ["type"],
+                    properties: {
+                        material:{
+                            bsonType: "array",
+                            minItems: 1,
+                            items: {
+                                bsonType: "string"
+                            }
+                        },
+                        type:{
+                            bsonType: "string",
+                        }
+                    }
+                }
+            }
+        }
+    }
+})

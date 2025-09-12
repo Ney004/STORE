@@ -1,8 +1,18 @@
-use("store")
+/*use("store")
 db.users.insertOne({
     lastname: "Doe",
     email: "doe@gmail.com",
     pasword: "*****",
     age: 25,
     gender: "M"
+})*/
+
+db.products.insertOne({
+    name: "Camisa",
+    size: ["S", "M", "L"],
+
+    category:{
+        material: ["algodon"],
+        type: "manga corta"
+    }
 })

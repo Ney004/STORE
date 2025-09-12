@@ -1,2 +1,2 @@
 use("store")
-db.users.find()
+db.products.find()
